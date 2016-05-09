@@ -469,7 +469,7 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-for (var i = 2; i < 100; i++) {
+for (var i = 2; i < 40; i++) {
   var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -502,6 +502,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
+// creating a vairable to pull the scrollTop out of the loop
   var items = document.querySelectorAll('.mover');
   var Top = document.body.scrollTop;
   for (var i = 0; i < items.length; i++) {
@@ -523,10 +524,11 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
+//Reducing the amount of pizzas through the loop from 200 to 40.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 40; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
